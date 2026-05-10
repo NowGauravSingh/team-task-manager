@@ -1,0 +1,105 @@
+.projects-page {
+  padding: 32px 0;
+}
+
+.projects-page h1 {
+  font-size: 32px;
+  color: #111827;
+}
+
+.forms-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.form-card {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-card h2 {
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.form-card input,
+.form-card textarea,
+.form-card select {
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  font-size: 15px;
+  outline: none;
+}
+
+.form-card textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form-card input:focus,
+.form-card textarea:focus,
+.form-card select:focus {
+  border-color: #2563eb;
+}
+
+.section-title {
+  margin-top: 34px;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.project-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  border-top: 4px solid #2563eb;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+}
+
+.project-card h3 {
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.project-card p {
+  color: #4b5563;
+  margin-bottom: 12px;
+}
+
+.project-card small {
+  color: #6b7280;
+}
+
+.task-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.task-actions select {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+@media (max-width: 900px) {
+  .forms-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
