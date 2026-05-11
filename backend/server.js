@@ -10,7 +10,17 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://independent-victory-production-0e9a.up.railway.app"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+  })
+);
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -18,9 +28,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", require("./routes/authRoutes"));
-
 app.use("/api/projects", require("./routes/projectRoutes"));
-
 app.use("/api/tasks", require("./routes/taskRoutes"));
 
 const PORT = process.env.PORT || 5000;
