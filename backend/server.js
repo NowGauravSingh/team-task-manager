@@ -1,6 +1,31 @@
-const cors = require('cors');
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import connectDB from "./config/db.js";
+import authRoutes from "./routes/authRoutes.js";
+
+dotenv.config();
+connectDB();
+
+const app = express();
 
 app.use(cors({
-  origin: 'https://flowdesk-production-3f4a.up.railway.app',
+  origin: [
+    "https://independent-victory-production-0e9a.up.railway.app",
+    "http://localhost:5173"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   credentials: true
 }));
+
+app.options("*", cors());
+
+app.use(express.json());
+
+app.use("/api/auth", authRoutes);
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
